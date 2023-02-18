@@ -1,5 +1,16 @@
 import { usePlaylists } from "./useUser"
+import { AudioRecorder } from 'react-audio-voice-recorder';
 
+const addAudioElement = (blob: any) => {
+	console.log('adding audio element...')
+	const url = URL.createObjectURL(blob);
+	const audio = document.createElement("audio");
+	audio.src = url;
+	audio.controls = true;
+	document.body.appendChild(audio);
+  };
+
+  
 export const Dashboard = () => {
 	const { data, } = usePlaylists()
 
@@ -8,8 +19,10 @@ export const Dashboard = () => {
 	return (
 		<div>
 			dine playlister:
-			hva sker der
-			der er sku da al mulig
+
+			<AudioRecorder onRecordingComplete={addAudioElement} />
+			
+
 		</div>
 	)
 }
