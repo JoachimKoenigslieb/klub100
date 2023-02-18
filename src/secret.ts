@@ -1,0 +1,4 @@
+
+export const CLIENT_ID = '19188b33e932484b887057930143b607';
+
+export const CLIENT_SECRET = 'f409a1db724b430a9e29f0df96915b2b';
