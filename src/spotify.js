@@ -64,7 +64,7 @@ function randomBytes(size) {
 	  code_challenge_method: 'S256',
 	  code_challenge: await generateCodeChallenge(code_verifier),
 	  state: state,
-	  // scope: '',
+	  scope: 'user-modify-playback-state',
 	})
   
 	sessionStorage.setItem('code_verifier', code_verifier)
@@ -104,7 +104,7 @@ function randomBytes(size) {
   /**
    * @param {RequestInfo} input
    */
-  export async function fetchWithToken(input) {
+  export async function fetchWithToken(input, init) {
 	const accessToken = await getAccessToken()
   
 	if (!accessToken) {
@@ -112,7 +112,8 @@ function randomBytes(size) {
 	}
   
 	return fetchJSON(input, {
-	  headers: { Authorization: `Bearer ${accessToken}` },
+		...init,
+		headers: { Authorization: `Bearer ${accessToken}` },
 	})
   }
   
