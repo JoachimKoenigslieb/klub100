@@ -1,4 +1,4 @@
-import { completeLogin } from './spotify.js'
+import { completeLogin } from './spotify'
 import { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 

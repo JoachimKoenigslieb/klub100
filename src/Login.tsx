@@ -1,13 +1,11 @@
 import { useEffect } from "react"
 import { Redirect, useHistory } from 'react-router-dom'
 import useUser from "./useUser"
-import { beginLogin } from './spotify.js'
+import { beginLogin } from './spotify'
 
 export const Login = () => {
 	const { user } = useUser()
 	const history = useHistory()
-
-	console.log('user', user)
 	
 	useEffect(() => {
 		if (user) {
