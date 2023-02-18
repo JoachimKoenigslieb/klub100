@@ -13,3 +13,16 @@ export default function useUser() {
     loggedOut: error?.status === 401,
   }
 }
+
+export const usePlaylists = () => {
+	const { data, mutate, error, } = useSWR(
+		'https://api.spotify.com/v1/me/playlists',
+		fetchWithToken,
+	)
+
+	console.log('error?', error)
+
+	return {
+		data, 
+	}
+}

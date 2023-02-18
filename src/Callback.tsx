@@ -8,7 +8,7 @@ export const Callback = () => {
   useEffect(() => {
     completeLogin()
       .then(() => {
-		history.push('/klub100/dash')
+		history.push('/klub100/dashboard')
 	})
       .catch((error: any) => {
         console.error(error)

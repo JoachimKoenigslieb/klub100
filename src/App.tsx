@@ -9,8 +9,9 @@ import {
 	Route,
 	Link
   } from "react-router-dom"
-import { Dash, Login } from './Login'
+import { Login } from './Login'
 import { Callback } from './Callback'
+import { Dashboard } from './Dashbord'
   
   const App = () => {
 
@@ -27,7 +28,7 @@ import { Callback } from './Callback'
 				<Callback />
 			</Route>
 			<Route path="/klub100/dashboard">
-
+				<Dashboard />
 			</Route>
 		</Router>
   )
