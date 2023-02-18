@@ -5,35 +5,28 @@ import { CLIENT_ID } from './secret'
 import React from 'react'
 import {
 	BrowserRouter as Router,
-	Switch,
 	Route,
-	Link
   } from "react-router-dom"
 import { Login } from './Login'
 import { Callback } from './Callback'
 import { Dashboard } from './Dashbord'
   
   const App = () => {
-
 	return (
-		<Router>
-			<Route path="/klub100/" exact>
-				burde log in
+		<Router basename={import.meta.env.BASE_URL}>
+			{import.meta.env.BASE_URL}
+			<Route path="/" exact>
 				<Login />
 			</Route>
-			<Route path="/klub100/callback">
-				Run taht shit
-			</Route>
-			<Route path="/klub100/callback">
+			<Route path="/callback">
 				<Callback />
 			</Route>
-			<Route path="/klub100/dashboard">
+			<Route path="/dashboard">
 				<Dashboard />
 			</Route>
 		</Router>
-  )
+	)
 }
-
-		
+	
 export default App
 		

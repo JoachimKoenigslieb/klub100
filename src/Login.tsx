@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Redirect, useHistory } from 'react-router-dom'
 import useUser from "./useUser"
 import { beginLogin } from './spotify'
+import styled from "styled-components"
 
 export const Login = () => {
 	const { user } = useUser()
@@ -9,20 +10,19 @@ export const Login = () => {
 	
 	useEffect(() => {
 		if (user) {
-			history.push('/klub100/dashboard')
+			history.push('/dashboard')
 		}
 	  }, [user])
 	
 	
 	return (
 		<div>
-			login min g?
+			<h1>Klub 100</h1>
 				<button onClick={async () => {
 					await beginLogin()
 				}}>
-					log ind
+					Log ind
 				</button>
-			`
 		</div>
 	)
 } 

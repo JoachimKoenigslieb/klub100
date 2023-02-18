@@ -3,8 +3,9 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
+	"homepage": "https://joachimkoenigslieb.github.io/klub100",
 	"scripts": {
-		"dev": "vite",
+		"dev": "vite --port 5174",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
 		"deploy": "yarn build && gh-pages -d dist"

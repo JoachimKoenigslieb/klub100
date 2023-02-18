@@ -43,20 +43,21 @@ const toNext = () => {
 };
 
 const ClockContainer = styled.div`
-	color: #ff5e00;
+	color: green;
 	font-size: 120px;
+
 `
 
 const Clock = (props: { time: number }) => {
   return (
   	<ClockContainer ref={ref => {
-		console.log(ref?.animate([ { transform: 'scale(0.8)'}], { duration: 1000, }))
+		console.log(ref?.animate([ { transform: 'scale(0.8)'}, { color: 'red', } ], { duration: 1000, }))
 	}}>{props.time}</ClockContainer>
 	);
 };
 
 const Player = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string, }>();
   const { data: playlist } = usePlaylist(id);
 
 //   console.log(playlist);
@@ -72,7 +73,7 @@ const Player = () => {
   return (
     <>
       <div>
-        <Link to="/klub100/dashboard">Tilbage</Link>
+        <Link to="/dashboard">Tilbage</Link>
       </div>
       <h2>{playlist?.name}</h2>
       <img src={playlist?.images?.[0]?.url} />
@@ -103,19 +104,19 @@ export const Dashboard = () => {
     <div>
       {/* <AudioRecorder onRecordingComplete={addAudioElement} /> */}
       <Switch>
-        <Route path={"/klub100/dashboard"} exact>
+        <Route path={"/dashboard"} exact>
           <h2>dine playlister:</h2>
           {data.items.map((playlist) => {
             return (
               <PlaylistListItem key={playlist.id}>
-                <Link to={`/klub100/dashboard/${playlist.id}`}>
+                <Link to={`/dashboard/${playlist.id}`}>
                   {playlist.name}
                 </Link>
               </PlaylistListItem>
             );
           })}
         </Route>
-        <Route path={"/klub100/dashboard/:id"}>
+        <Route path={"/dashboard/:id"}>
           <Player />
         </Route>
       </Switch>
