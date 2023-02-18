@@ -63,7 +63,7 @@ function randomBytes(size: number) {
 	const params = new URLSearchParams({
 	  client_id: CLIENT_ID,
 	  response_type: 'code',
-	  redirect_uri: `${location.origin}/klub100/callback`,
+	  redirect_uri: `${location.origin}/callback`,
 	  code_challenge_method: 'S256',
 	  code_challenge: await generateCodeChallenge(code_verifier),
 	  state: state,
@@ -99,7 +99,7 @@ function randomBytes(size: number) {
 	await createAccessToken({
 	  grant_type: 'authorization_code',
 	  code,
-	  redirect_uri: `${location.origin}/klub100/callback`,
+	  redirect_uri: `${location.origin}/callback`,
 	  code_verifier: code_verifier,
 	})
   }

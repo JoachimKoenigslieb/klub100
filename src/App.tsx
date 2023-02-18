@@ -13,8 +13,7 @@ import { Dashboard } from './Dashbord'
   
   const App = () => {
 	return (
-		<Router basename={import.meta.env.BASE_URL}>
-			{import.meta.env.BASE_URL}
+		<Router>
 			<Route path="/" exact>
 				<Login />
 			</Route>
